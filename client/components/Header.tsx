@@ -6,6 +6,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,8 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+
 
   const handleNavClick = (href: string) => {
     if (href.startsWith("#")) {
@@ -41,9 +44,12 @@ export default function Header() {
     setIsOpen(false); // Close mobile menu
   };
 
+
+
   const navItems = [
+    { label: "Home", href: "/" },
     { label: "Our Work", href: "#our-work" },
-    { label: "Services", href: "#services" },
+    { label: "Services", href: "/services" },
     { label: "Company", href: "/company" } ,
     { label: "Careers", href: "/careers" },
   ];
@@ -78,17 +84,18 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => handleNavClick(item.href)}
-                className={`font-medium transition-colors duration-300 ${
-                  isScrolled
-                    ? "text-gray-300 hover:text-cn-blue"
-                    : "text-white/80 hover:text-cn-blue"
-                }`}
-              >
-                {item.label}
-              </button>
+              <div key={item.label} className="relative">
+                <button
+                  onClick={() => handleNavClick(item.href)}
+                  className={`font-medium transition-colors duration-300 flex items-center gap-1 ${
+                    isScrolled
+                      ? "text-gray-300 hover:text-cn-blue"
+                      : "text-white/80 hover:text-cn-blue"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              </div>
             ))}
           </nav>
 
@@ -117,13 +124,14 @@ export default function Header() {
           <div className="md:hidden pb-4 animate-fade-in">
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => handleNavClick(item.href)}
-                  className="text-white/80 hover:text-cn-blue transition-colors duration-300 font-medium text-left"
-                >
-                  {item.label}
-                </button>
+                <div key={item.label}>
+                  <button
+                    onClick={() => handleNavClick(item.href)}
+                    className="text-white/80 hover:text-cn-blue transition-colors duration-300 font-medium text-left flex items-center gap-1"
+                  >
+                    {item.label}
+                  </button>
+                </div>
               ))}
               <button className="w-full px-6 py-2 bg-cn-blue text-white font-semibold rounded-lg hover:bg-blue-600 transition-all duration-300 mt-4">
                 Contact Us

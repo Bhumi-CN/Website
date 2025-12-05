@@ -2,6 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import { Footer } from "@/components/ContactAndFooter";
 
@@ -66,6 +68,16 @@ export default function Company() {
   return (
     <main className="w-full min-h-screen bg-black text-white snap-y snap-mandatory overflow-scroll">
       <Header />
+
+      {/* Back Button */}
+      <div className="fixed top-20 left-6 z-40">
+        <Link to="/">
+          <button className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-all duration-300 text-white">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </button>
+        </Link>
+      </div>
 
       {/* HERO */}
       <section className="relative min-h-screen snap-start pt-20 flex justify-start items-center overflow-hidden">

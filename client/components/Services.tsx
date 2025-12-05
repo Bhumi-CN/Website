@@ -1,10 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ServiceCard } from "./ServiceCard";
 
 const services = [
   {
     title: "AI & Automation",
+    slug: "ai-automation",
     shortText: "Automate workflows and achieve efficiency.",
     fullText:
       "We build AI-driven automation pipelines that accelerate operations and reduce errors, enabling smarter digital transformation.",
@@ -12,6 +14,7 @@ const services = [
   },
   {
     title: "Cloud Services",
+    slug: "cloud-services",
     shortText: "Build & scale cloud-native applications.",
     fullText:
       "Enterprise-grade cloud solutions with complete security, scalability, and performance optimization.",
@@ -19,6 +22,7 @@ const services = [
   },
   {
     title: "App Development",
+    slug: "app-development",
     shortText: "Modern and scalable applications.",
     fullText:
       "Cutting-edge mobile and web development with latest tech — secure, scalable & performance-focused.",
@@ -26,6 +30,7 @@ const services = [
   },
   {
     title: "Cybersecurity",
+    slug: "cybersecurity",
     shortText: "Protect. Prevent. Defend.",
     fullText:
       "Threat detection, zero-trust architecture, and enterprise-grade cybersecurity frameworks.",
@@ -33,6 +38,7 @@ const services = [
   },
   {
     title: "IoT & Automation",
+    slug: "iot-automation",
     shortText: "Connected smart solutions.",
     fullText:
       "IoT ecosystems and automation frameworks advancing Industry 4.0 transformation.",
@@ -40,6 +46,7 @@ const services = [
   },
   {
     title: "SaaS Solutions",
+    slug: "saas-solutions",
     shortText: "Build future-ready platforms.",
     fullText:
       "Custom SaaS platforms with automation, analytics & secure architecture.",
@@ -68,6 +75,7 @@ export const Services = () => {
       <div className="text-center mb-16">
         <h2 className="text-5xl font-bold text-white">
           <span className="text-cyan-400">Our</span> Services
+          
         </h2>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto mt-3">
           Driving transformation with innovation, automation and secure cloud solutions.

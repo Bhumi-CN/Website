@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   title: string;
   shortText: string;
   fullText: string;
   image: string;
+  slug: string;
 }
 
-export const ServiceCard = ({ title, shortText, fullText, image }: ServiceCardProps) => {
+export const ServiceCard = ({ title, shortText, fullText, image, slug }: ServiceCardProps) => {
   return (
     <div className="group relative h-80 rounded-xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out">
       {/* Background Image */}
@@ -35,9 +37,11 @@ export const ServiceCard = ({ title, shortText, fullText, image }: ServiceCardPr
           className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         >
           <p className="text-sm mb-4 leading-relaxed">{fullText}</p>
-          <button className="inline-flex items-center gap-2 text-sm font-semibold bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/30 transition-all duration-300">
-            Learn More →
-          </button>
+          <Link to={`/services/${slug}`}>
+            <button className="inline-flex items-center gap-2 text-sm font-semibold bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/30 transition-all duration-300">
+              Learn More →
+            </button>
+          </Link>
         </motion.div>
       </div>
     </div>
