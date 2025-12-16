@@ -28,17 +28,23 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/company" element={<Company />} />
-          <Route path="/careers" element={<Careers />} />
-<<<<<<< HEAD
-          <Route path="/OurWorkHealth" element={<OurWorkHealth />} />
-          <Route path="/OurWorkFintech" element={<OurWorkFintech />} />
-          <Route path="/OurWorkRetail" element={<OurWorkRetail />} />
-=======
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:slug" element={<ServicePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
->>>>>>> origin/feature/company-page-update
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/OurWorkHealth" element={<OurWorkHealth />} />
+          <Route path="/OurWorkFintech" element={<OurWorkFintech />} />
+          <Route path="/OurWorkRetail" element={<OurWorkRetail />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:slug" element={<ServicePage />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:slug" element={<ServicePage />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

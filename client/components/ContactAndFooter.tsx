@@ -159,14 +159,14 @@ export const Footer = () => {
             </p>
 
             {/* Message Bar */}
-            <div className="flex items-center bg-[#0D1524]/70 backdrop-blur-sm border border-white/10 rounded-xl p-1">
+            <div className="flex items-center bg-[#0D1524]/80 backdrop-blur-md border border-white/20 rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300">
               <input
                 type="text"
                 placeholder="Share your business problem..."
-                className="flex-1 bg-transparent outline-none text-gray-300 placeholder-gray-500 px-4 py-2 text-sm focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400/50 rounded-lg transition-all"
+                className="flex-1 bg-transparent outline-none text-gray-200 placeholder-gray-400 px-5 py-3 text-sm focus:ring-2 focus:ring-cyan-400/70 focus:border-cyan-400/70 rounded-xl transition-all duration-300 focus:bg-[#0D1524]/50"
               />
-              <button className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold hover:shadow-[0_0_20px_rgba(0,255,255,0.4)] transition-all hover:scale-105">
-                →
+              <button className="w-16 h-14 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold hover:shadow-[0_0_30px_rgba(0,255,255,0.6)] hover:shadow-cyan-400/50 transition-all duration-300 hover:scale-110 active:scale-95 ml-2">
+                <span className="text-lg">→</span>
               </button>
             </div>
           </div>

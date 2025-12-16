@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
@@ -16,7 +16,7 @@ const scrollingLogos = [
   { src: "/logos/ylc.png" },
 ];
 
-/* Leadership */
+/* Leadership Data */
 const leaders = [
   { name: "Yash Singh", role: "CTO", img: "/leaders/ceo.png" },
   { name: "Kaustubh Singh", role: "Founder & CEO", img: "/leaders/leader2.png" },
@@ -59,14 +59,12 @@ function Counter({ end, label }) {
   );
 }
 
-
 export default function Company() {
-  const [activeLeader, setActiveLeader] = useState(null);
-
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
     <main className="w-full min-h-screen bg-black text-white snap-y snap-mandatory overflow-scroll">
+
       <Header />
 
       {/* Back Button */}
@@ -79,158 +77,223 @@ export default function Company() {
         </Link>
       </div>
 
-      {/* HERO */}
-      <section className="relative min-h-screen snap-start pt-20 flex justify-start items-center overflow-hidden">
-        <video src="/video/origin.mp4" autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0"/>
-        <div className="absolute inset-0 bg-black/50 z-0 backdrop-blur-md"></div>
+      {/* HERO (FULL SCREEN) */}
+      <section className="relative h-screen snap-start flex justify-start items-center overflow-hidden">
+        <video
+          src="/video/origin.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-md z-0"></div>
 
-        <div className="relative z-20 max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-5 gap-10">
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="lg:col-span-3">
-
+        <div className="relative z-20 max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="space-y-4"
+          >
             <div className="inline-block rounded-full border border-white/20 bg-white/10 px-5 py-2 mb-6">
-              <p className="text-sm font-semibold text-cyan-300">🌍 Built with Purpose, Run with Consistency</p>
+              <p className="text-sm font-semibold text-cyan-300">
+                🌍 Built with Purpose, Run with Consistency
+              </p>
             </div>
 
-            <p className="text-3xl font-semibold text-center">
-              <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent whitespace-nowrap">
+            <p className="text-4xl font-semibold max-w-2xl leading-snug">
+              <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
                 Dependable technology. Remarkable outcomes.
               </span>
             </p>
 
-            <p className="text-lg text-gray-300 mt-4 max-w-2xl">
-              We don’t chase speed — we master consistency. Because true innovation isn’t a moment, it’s a habit.
+            <p className="text-lg text-gray-300 max-w-xl">
+              True innovation isn’t a moment — it’s a habit. We design systems
+              that perform with consistency, clarity, and unmatched reliability.
             </p>
           </motion.div>
         </div>
       </section>
 
-
       {/* ORIGIN */}
-      <section className="min-h-screen snap-start grid lg:grid-cols-2 gap-10 items-center px-6 lg:px-20">
+      <section className="min-h-screen snap-start grid lg:grid-cols-2 gap-6 items-center px-6 py-12">
         <div>
-          <h2 className="text-4xl font-bold">Our <span className="text-cyan-400">Origin</span></h2>
+          <h2 className="text-4xl font-bold">
+            Our <span className="text-cyan-400">Origin</span>
+          </h2>
           <p className="text-gray-400 mt-3">
-            CloudNexus was founded on a simple belief: <strong className="text-white">technology should adapt to people — not the other way around.</strong>
+            CloudNexus was founded on a simple belief:{" "}
+            <strong className="text-white">
+              Technology should adapt to people—not the other way around.
+            </strong>
           </p>
           <p className="text-gray-400 mt-4">
-            From day one, we built with <span className="text-cyan-400 font-semibold">commitment, consistency, and courage</span> — ensuring every system we deploy stands strong today and scales effortlessly tomorrow.
+            Built on commitment, consistency, and courage — every system we
+            deploy stands strong today and scales effortlessly tomorrow.
           </p>
         </div>
 
-        <motion.video src="/video/origin.mp4" autoPlay muted loop playsInline className="w-full h-[350px] object-cover rounded-3xl shadow-[0_0_35px_cyan]" />
+        <motion.video
+          src="/video/origin.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-[350px] object-cover rounded-3xl shadow-[0_0_35px_cyan]"
+        />
       </section>
-
 
       {/* VISION */}
-      <section className="min-h-screen snap-start grid lg:grid-cols-2 gap-10 items-center px-6 lg:px-20">
-        <motion.img src="/image/vision.jpeg" className="w-full h-[350px] object-cover rounded-3xl shadow-[0_0_35px_cyan]"/>
+      <section className="min-h-screen snap-start grid lg:grid-cols-2 gap-6 items-center px-6 py-12">
+        <motion.img
+          src="/image/vision.jpeg"
+          className="w-full h-[350px] object-cover rounded-3xl shadow-[0_0_35px_cyan]"
+        />
 
         <div>
-          <h2 className="text-4xl font-bold">Our <span className="text-cyan-400">Vision</span></h2>
+          <h2 className="text-4xl font-bold">
+            Our <span className="text-cyan-400">Vision</span>
+          </h2>
           <p className="text-gray-400 mt-3">
-            A connected world where automation, cloud and AI unite to create clarity, efficiency, and opportunity.
+            A connected world where automation, cloud and AI unite to create
+            clarity, efficiency, and opportunity.
           </p>
           <p className="text-gray-400 mt-4">
-            Not just technology — but technology that evolves with the world, without ever compromising performance or consistency.
+            Not just technology — but technology that evolves without
+            compromising consistency.
           </p>
         </div>
       </section>
 
-
       {/* LOGO SLIDER */}
-      <section className="min-h-screen snap-start flex flex-col items-center justify-center">
-        <h2 className="text-4xl font-bold mb-4">Trusted by Leading Companies</h2>
-        <p className="text-gray-400 mb-10 text-center">Our partners trust us not just to build — but to build reliably, repeatedly, and responsibly.</p>
+      <section className="h-[40vh] snap-start flex flex-col items-center justify-center px-6 py-10">
+        <h2 className="text-3xl font-bold mb-2">Trusted by Leading Companies</h2>
+        <p className="text-gray-400 mb-8 text-center">
+          Our partners trust us for reliability, innovation, and consistency.
+        </p>
 
         <div className="w-full overflow-hidden">
-          <motion.div animate={{ x: ["0%", "-100%"] }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }} className="flex gap-24 whitespace-nowrap">
-            {[...scrollingLogos, ...scrollingLogos, ...scrollingLogos].map((logo, i) => (
-              <img key={i} src={logo.src} className="h-20 opacity-80 hover:opacity-100 transition" />
-            ))}
+          <motion.div
+            animate={{ x: ["0%", "-100%"] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            className="flex gap-24 whitespace-nowrap"
+          >
+            {[...scrollingLogos, ...scrollingLogos, ...scrollingLogos].map(
+              (logo, i) => (
+                <img
+                  key={i}
+                  src={logo.src}
+                  className="h-20 opacity-80 hover:opacity-100 transition"
+                />
+              )
+            )}
           </motion.div>
         </div>
       </section>
 
-
       {/* RELATIONSHIPS */}
-      <section className="min-h-screen snap-start grid lg:grid-cols-2 gap-10 items-center px-6 lg:px-20">
-        <motion.img src="/logos/image.png" className="w-full h-[350px] object-cover rounded-3xl shadow-xl"/>
+      <section className="min-h-screen snap-start grid lg:grid-cols-2 gap-6 items-center px-6 py-12">
+        <motion.img
+          src="/logos/image.png"
+          className="w-full h-[350px] object-cover rounded-3xl shadow-xl"
+        />
 
         <div>
-          <h2 className="text-4xl font-bold">Our <span className="text-cyan-400">Relationships</span></h2>
+          <h2 className="text-4xl font-bold">
+            Our <span className="text-cyan-400">Relationships</span>
+          </h2>
 
           <div className="space-y-4 text-gray-300 mt-6">
-            <p><strong className="text-white">CUSTOMERS</strong> facing problems that need integrated cloud solutions.</p>
-            <p><strong className="text-white">PARTNERS</strong> delivering cloud solutions to customers from providers.</p>
-            <p><strong className="text-white">PROVIDERS</strong> innovating and developing solutions for future-focused needs.</p>
+            <p>
+              <strong className="text-white">CUSTOMERS</strong> seeking
+              integrated cloud solutions.
+            </p>
+            <p>
+              <strong className="text-white">PARTNERS</strong> delivering cloud
+              solutions to clients.
+            </p>
+            <p>
+              <strong className="text-white">PROVIDERS</strong> innovating for
+              future-focused needs.
+            </p>
           </div>
 
           <div className="grid grid-cols-3 gap-6 mt-10">
-            <Counter end={100} label="Customers"/>
-            <Counter end={20} label="Partners"/>
-            <Counter end={30} label="Providers"/>
+            <Counter end={100} label="Customers" />
+            <Counter end={20} label="Partners" />
+            <Counter end={30} label="Providers" />
           </div>
         </div>
       </section>
 
-
       {/* LEADERSHIP */}
-      {/* 👥 Leadership */}
-<section className="min-h-screen snap-start flex flex-col items-center px-6 lg:px-20">
-  <h2 className="text-4xl font-bold mb-14">Our Leadership</h2>
+      <section className="min-h-screen snap-start flex flex-col items-center px-6 py-16 gap-6">
+        <h2 className="text-4xl font-bold mb-6">Our Leadership</h2>
 
-  {/* ---- FIRST ROW (CEO, etc.) ---- */}
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full mb-16">
-    {leaders.slice(0, 3).map((leader, index) => (
-      <motion.div
-        key={index}
-        whileHover={{ scale: 1.05 }}
-        className={`bg-[#0F1C22] rounded-3xl p-6 border border-white/10 shadow-xl text-center transition-all duration-300
-          ${index === 1 ? "md:scale-110 md:h-[430px]" : "md:h-[380px]"}
-        `}
-      >
-        <img
-          src={leader.img}
-          className={`w-full object-contain mx-auto transition-all
-            ${index === 1 ? "h-[260px]" : "h-[220px]"}
-          `}
-        />
-        
-        <h3 className={`font-bold mt-4 transition-all
-          ${index === 1 ? "text-2xl" : "text-xl"}
-        `}>
-          {leader.name}
-        </h3>
+        {/* ---- ROW 1 (CTO - CEO - TECH LEAD) ---- */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
 
-        <p className={`transition-all text-cyan-400
-          ${index === 1 ? "text-lg" : "text-sm"}
-        `}>
-          {leader.role}
-        </p>
-      </motion.div>
-    ))}
-  </div>
+          {/* CTO */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-[#0F1C22] rounded-3xl p-6 border border-white/10 shadow-xl text-center md:h-[380px]"
+          >
+            <img
+              src={leaders[0].img}
+              className="w-full h-[240px] object-contain mx-auto"
+            />
+            <h3 className="text-xl font-bold mt-4">{leaders[0].name}</h3>
+            <p className="text-cyan-400 text-sm">{leaders[0].role}</p>
+          </motion.div>
 
-  {/* ---- SECOND ROW (4 Equal Team Leads in One Line) ---- */}
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-10 w-full">
-    {leaders.slice(0, 4).map((leader, index) => (
-      <motion.div
-        key={index}
-        whileHover={{ scale: 1.05 }}
-        className="bg-[#0F1C22] rounded-3xl p-6 border border-white/10 shadow-xl text-center"
-      >
-        <img
-          src={leader.img}
-          className="w-full h-[220px] object-contain mx-auto rounded-xl"
-        />
+          {/* CEO (BIG CENTER CARD) */}
+          <motion.div
+            whileHover={{ scale: 1.07 }}
+            className="bg-[#0F1C22] rounded-3xl p-6 border border-white/10 shadow-xl text-center md:h-[460px] scale-105"
+          >
+            <img
+              src={leaders[1].img}
+              className="w-full h-[320px] object-contain mx-auto"
+            />
+            <h3 className="text-2xl font-bold mt-4">{leaders[1].name}</h3>
+            <p className="text-cyan-400 text-lg">{leaders[1].role}</p>
+          </motion.div>
 
-        <h3 className="text-lg font-bold mt-4">{leader.name}</h3>
-        <p className="text-cyan-400 text-sm">{leader.role}</p>
-      </motion.div>
-    ))}
-  </div>
-</section>
+          {/* TECH LEAD */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-[#0F1C22] rounded-3xl p-6 border border-white/10 shadow-xl text-center md:h-[380px]"
+          >
+            <img
+              src={leaders[2].img}
+              className="w-full h-[240px] object-contain mx-auto"
+            />
+            <h3 className="text-xl font-bold mt-4">{leaders[2].name}</h3>
+            <p className="text-cyan-400 text-sm">{leaders[2].role}</p>
+          </motion.div>
 
+        </div>
+
+        {/* ---- ROW 2 (TEAM LEADS) ---- */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-6xl">
+          {leaders.slice(3).map((leader, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="bg-[#0F1C22] rounded-3xl p-6 border border-white/10 shadow-xl text-center"
+            >
+              <img
+                src={leader.img}
+                className="w-full h-[200px] object-contain mx-auto"
+              />
+              <h3 className="text-lg font-bold mt-4">{leader.name}</h3>
+              <p className="text-cyan-400 text-sm">{leader.role}</p>
+            </motion.div>
+          ))}
+        </div>
+
+      </section>
 
       <Footer />
     </main>
